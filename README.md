@@ -1,60 +1,56 @@
-## imeepos angular template
+## meepo axios
+
+- 安装
 
 ```sh
-git remote add origin https://github.com/meepobrother/imeepos-ng-template.git
-git push -u origin master
+yarn add meepo-axios
+# or
+npm install --save meepo-axios
 ```
 
-
-### 用法
-
-```sh
-git clone https://github.com/meepobrother/imeepos-ng-template.git my-app
-cd my-app
-yarn 
-// 或者
-npm install
-```
-
-### 发布包到npm
+- 导入
 
 ```ts
-// 删除mac自带后缀文件
-find ./ -name ".DS_Store" | xargs rm -rf
-// 1: 更改package.json中的name为要发布的名字
-npm run build && npm publish
+import { AxiosModule } from 'meepo-axios';
+import { MeepoCoreModule } from 'meepo-core';
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    AxiosModule.forRoot(),
+    MeepoCoreModule.forRoot()
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
 ```
-
-### 使用发布的包
+- 使用
 
 ```ts
-npm install --save 包名
-```
+import { AxiosService } from 'meepo-axios';
 
+// get
+let c1 = this.axios.get("https://meepo.com.cn/v1/cities1").then(res=>{
+    console.log(res);
+}).cache(err=>{
+    console.log(err)
+});;
 
-```ts
-import { 模块 } from {包名}
-```
+// post
+let data = {};
+let c1 = this.axios.post("https://meepo.com.cn/v1/cities1",data).then(res=>{
+    console.log(res);
+}).cache(err=>{
+    console.log(err)
+});
 
-```ts
-"rollup": "^0.43.0",
-"rollup-plugin-commonjs": "^8.0.2",
-"rollup-plugin-includepaths": "0.2.2",
-"rollup-plugin-node-resolve": "^3.0.0"
-```
-
-- demo演示
-
-```
-yarn demo
-```
-
-- 后台相关
-```ts
-// 启动后台服务
-yarn server
-// 重启后台服务
-yarn reload
-// 清除进程
-yarn delete
+// 合并请求
+let c1 = this.axios.get("https://meepo.com.cn/v1/cities1");
+let c2 = this.axios.get("https://meepo.com.cn/v1/cities2");
+let s$ = this.axios.all([c1, c2]).subscribe(res => {
+    s$.unsubscribe();
+});
 ```

@@ -9,7 +9,7 @@ import { MeepoCoreModule } from 'meepo-core';
   ],
   imports: [
     BrowserModule,
-    AxiosModule,
+    AxiosModule.forRoot(),
     MeepoCoreModule.forRoot()
   ],
   providers: [],

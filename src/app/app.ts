@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 import { AxiosService } from './axios/axios.service';
 import { MeepoCoreModule } from 'meepo-core';
 @NgModule({
@@ -6,10 +6,16 @@ import { MeepoCoreModule } from 'meepo-core';
         MeepoCoreModule.forRoot()
     ],
     exports: [],
-    declarations: [],
-    providers: [
-        AxiosService
-    ],
+    declarations: []
 })
-export class AxiosModule { }
+export class AxiosModule {
+    public static forRoot(): ModuleWithProviders {
+        return {
+            ngModule: AxiosModule,
+            providers: [
+                AxiosService
+            ]
+        }
+    }
+}
 export { AxiosService } from './axios/axios.service';
