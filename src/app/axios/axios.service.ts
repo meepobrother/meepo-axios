@@ -22,6 +22,8 @@ import axios from 'axios';
 import { DOCUMENT } from '@angular/common';
 
 import { CoreService } from 'meepo-core';
+import { Subject } from 'rxjs/Subject';
+
 @Injectable()
 export class AxiosService {
     source: any = axios.CancelToken.source();
@@ -34,29 +36,22 @@ export class AxiosService {
         // 添加请求拦截器
         axios.interceptors.request.use((config) => {
             // 在发送请求之前做些什么
-            this.core.showLoading({type: 'skCube'});
+            this.core.showLoading({ type: 'skCube' });
             return config;
         }, (error) => {
             // 对请求错误做些什么
+            this.core.closeLoading();
+            this.core.showToast({ title: '请求错误', message: error.message, type: 'error' });
             return Promise.reject(error);
         });
         // 添加响应拦截器
         axios.interceptors.response.use((response) => {
             // 对响应数据做点什么
-            setTimeout(() => {
-                this.core.closeLoading();
-            }, 500);
+            this.core.closeLoading();
             return response;
         }, (error) => {
-            if (error.response.status === 404) {
-                setTimeout(() => {
-                    this.core.closeLoading();
-                    this.core.showToast({ title: error.message });
-                    setTimeout(() => {
-                        this.core.closeToast();
-                    }, 1000);
-                }, 500);
-            }
+            this.core.closeLoading();
+            this.core.showToast({ title: '响应错误', message: error.message, type: 'error' });
             // 对响应错误做点什么
             return Promise.reject(error);
         });
@@ -74,5 +69,13 @@ export class AxiosService {
 
     cancel(msg: string = 'cancel') {
         this.source.cancel(msg);
+    }
+
+    all(arr: any[]): Subject<any> {
+        let s$: Subject<any> = new Subject();
+        axios.all(arr).then(axios.spread((...results) => {
+            s$.next(results);
+        }));
+        return s$;
     }
 }

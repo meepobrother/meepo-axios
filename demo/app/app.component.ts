@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
   constructor(
     public axios: AxiosService,
     public cd: ChangeDetectorRef
-  ) { 
+  ) {
   }
 
   ngOnInit() {
@@ -20,8 +20,11 @@ export class AppComponent implements OnInit {
   }
 
   getCity() {
-    this.axios.get("https://meepo.com.cn/v1/cities1").then(res => {
-      this.city = res.data;
-    }).catch(error => { });
+    let c1 = this.axios.get("https://meepo.com.cn/v1/cities1");
+    let c2 = this.axios.get("https://meepo.com.cn/v1/cities2");
+    let s$ = this.axios.all([c1, c2]).subscribe(res => {
+      console.log(res);
+      s$.unsubscribe();
+    });
   }
 }
