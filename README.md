@@ -1,5 +1,7 @@
 ## meepo axios
 
+> 已对加载中及错误进行处理
+
 - 安装
 
 ```sh
@@ -28,6 +30,10 @@ import { MeepoCoreModule } from 'meepo-core';
 export class AppModule { }
 ```
 - 使用
+
+```html
+<core-root></core-root>
+```
 
 ```ts
 import { AxiosService } from 'meepo-axios';
