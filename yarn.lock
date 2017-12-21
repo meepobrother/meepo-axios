@@ -3477,15 +3477,9 @@ media-typer@0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/media-typer/-/media-typer-0.3.0.tgz#8710d7af0aa626f8fffa1ce00168545263255748"
 
-meepo-bmap@^1.0.9:
-  version "1.6.3"
-  resolved "https://registry.yarnpkg.com/meepo-bmap/-/meepo-bmap-1.6.3.tgz#f48904bb9517c03d3f046d0beb36a04c8cd65614"
-  dependencies:
-    tslib "^1.7.1"
-
-meepo-core@^1.1.22:
-  version "1.1.22"
-  resolved "https://registry.yarnpkg.com/meepo-core/-/meepo-core-1.1.22.tgz#5a342c43ff7546b2b02fef93263d100bf6706b23"
+meepo-core@^1.1.23:
+  version "1.1.23"
+  resolved "https://registry.yarnpkg.com/meepo-core/-/meepo-core-1.1.23.tgz#ae10ab27f853befc279d5110046d243d1ab5fe41"
   dependencies:
     "@angular/common" "^5.1.0"
     "@angular/core" "^5.1.0"
@@ -3496,7 +3490,6 @@ meepo-core@^1.1.22:
     "@nestjs/microservices" "^4.5.1"
     "@nestjs/testing" "^4.5.1"
     "@nestjs/websockets" "^4.5.1"
-    meepo-bmap "^1.0.9"
     mysql "^2.15.0"
     reflect-metadata "^0.1.10"
     rxjs "^5.5.5"
