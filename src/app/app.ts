@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { VersionnComponent } from './version';
-
+import { AxiosService } from './axios/axios.service';
 @NgModule({
-    declarations: [
-        VersionnComponent
-    ],
-    imports: [ CommonModule ],
+    imports: [],
     exports: [],
-    providers: [],
+    declarations: [],
+    providers: [
+        AxiosService
+    ],
 })
-export class AppModule {}
+export class AxiosModule { }
+export { AxiosService } from './axios/axios.service';
