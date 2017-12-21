@@ -10,7 +10,7 @@ import { MeepoCoreModule } from 'meepo-core';
   imports: [
     BrowserModule,
     AxiosModule,
-    MeepoCoreModule
+    MeepoCoreModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

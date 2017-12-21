@@ -1,18 +1,15 @@
 import { NgModule } from '@angular/core';
 import { AxiosService } from './axios/axios.service';
-import { LoadingService } from './axios/loading.service';
-import { ToasterService } from './axios/toaster.service';
+import { MeepoCoreModule } from 'meepo-core';
 @NgModule({
-    imports: [],
+    imports: [
+        MeepoCoreModule.forRoot()
+    ],
     exports: [],
     declarations: [],
     providers: [
-        AxiosService,
-        LoadingService,
-        ToasterService
+        AxiosService
     ],
 })
 export class AxiosModule { }
 export { AxiosService } from './axios/axios.service';
-export { LoadingService } from './axios/loading.service';
-export { ToasterService } from './axios/toaster.service';

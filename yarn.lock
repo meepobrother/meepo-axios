@@ -3483,9 +3483,9 @@ meepo-bmap@^1.0.9:
   dependencies:
     tslib "^1.7.1"
 
-meepo-core@^1.0.5:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/meepo-core/-/meepo-core-1.0.5.tgz#6ec1e538a45dcda88dbc17e1316adf9bfe617cf6"
+meepo-core@^1.0.8:
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/meepo-core/-/meepo-core-1.0.8.tgz#2c69db17df1e7920884a02a7e385f2d44f91f8ba"
   dependencies:
     "@angular/common" "^5.1.0"
     "@angular/core" "^5.1.0"
