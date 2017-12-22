@@ -114,7 +114,8 @@ let globals = {
     'rxjs/operators/tap': 'Rx.Observable.prototype',
 
     // other
-    'axios': 'axios'
+    'axios': 'axios',
+    'js-base64': 'js-base64'
 };
 
 let plugins = [
