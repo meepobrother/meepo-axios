@@ -23,7 +23,7 @@ import { DOCUMENT } from '@angular/common';
 
 import { CoreService } from 'meepo-core';
 import { Subject } from 'rxjs/Subject';
-
+import { Base64Service } from 'meepo-base64';
 @Injectable()
 export class AxiosService {
     source: any = axios.CancelToken.source();
@@ -31,7 +31,8 @@ export class AxiosService {
         cancelToken: this.source.token
     };
     constructor(
-        public core: CoreService
+        public core: CoreService,
+        public base64: Base64Service
     ) {
         // 添加请求拦截器
         axios.interceptors.request.use((config) => {
@@ -65,6 +66,19 @@ export class AxiosService {
     post<T>(url: string, data?: any, config?: AxiosRequestConfig): AxiosPromise<T> {
         config = { ...this.default, ...config }
         return axios.post<T>(url, data, config);
+    }
+
+    bpost<T>(url: string, data?: any, config?: AxiosRequestConfig): AxiosPromise<T> {
+        config = { ...this.default, ...config };
+        data = this.entry(data);
+        return axios.post<T>(url, data, config);
+    }
+
+    entry(__body: any = {}) {
+        const d = JSON.stringify(__body);
+        const encrypted = this.base64.encode(d);
+        // for angular
+        return { __input: { encrypted: encrypted } };
     }
 
     cancel(msg: string = 'cancel') {
