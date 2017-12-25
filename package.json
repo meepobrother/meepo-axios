@@ -1,6 +1,6 @@
 {
     "name": "meepo-axios",
-    "version": "1.1.9",
+    "version": "1.2.0",
     "description": "meepo axios",
     "main": "./bundles/meepo.umd.js",
     "module": "./esm5/meepo.js",
@@ -10,7 +10,7 @@
         "build": "bash ./build.sh",
         "git": "git add . && git commit -m 'save to back' && git push origin master",
         "test": "node index.js",
-        "demo": "ng serve",
+        "demo": "ng serve --open",
         "server": "pm2 start index.js --name meepo",
         "reload": "pm2 restart all && pm2 logs meepo",
         "delete": "pm2 delete all",
@@ -29,9 +29,9 @@
     "homepage": "https://github.com/meepobrother/meepo-axios/README.md",
     "devDependencies": {
         "@angular/cli": "^1.6.1",
-        "@angular/compiler": "^5.1.0",
-        "@angular/compiler-cli": "^5.1.0",
-        "@angular/platform-browser-dynamic": "^5.1.1",
+        "@angular/compiler": "5.2.0-beta.1",
+        "@angular/compiler-cli": "5.2.0-beta.1",
+        "@angular/platform-browser-dynamic": "5.2.0-beta.1",
         "@types/node": "^8.5.1",
         "less": "^2.7.3",
         "node-sass": "^4.7.2",
@@ -46,12 +46,12 @@
         "typescript": "~2.4.2"
     },
     "dependencies": {
-        "@angular/common": "^5.1.0",
-        "@angular/core": "^5.1.0",
-        "@angular/platform-browser": "^5.1.0",
+        "@angular/common": "5.2.0-beta.1",
+        "@angular/core": "5.2.0-beta.1",
+        "@angular/platform-browser": "5.2.0-beta.1",
         "axios": "^0.17.1",
-        "meepo-base64": "^1.0.9",
-        "meepo-core": "^2.8.0",
+        "meepo-base64": "^1.1.1",
+        "meepo-core": "^2.9.4",
         "reflect-metadata": "~0.1.10",
         "rxjs": "^5.5.0",
         "zone.js": "0.8.4"

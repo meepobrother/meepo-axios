@@ -9,8 +9,8 @@ import { MeepoCoreModule } from 'meepo-core';
   ],
   imports: [
     BrowserModule,
-    AxiosModule.forRoot(),
-    MeepoCoreModule.forRoot()
+    AxiosModule,
+    MeepoCoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
