@@ -3224,9 +3224,9 @@ media-typer@0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/media-typer/-/media-typer-0.3.0.tgz#8710d7af0aa626f8fffa1ce00168545263255748"
 
-meepo-base64@^1.0.5:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/meepo-base64/-/meepo-base64-1.0.5.tgz#13ca32036c18a345a6f265587e6baa23fc71a2a3"
+meepo-base64@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/meepo-base64/-/meepo-base64-1.0.6.tgz#b482bb9df571becd569412c56111082034a305e9"
   dependencies:
     "@angular/common" "^5.1.0"
     "@angular/core" "^5.1.0"
