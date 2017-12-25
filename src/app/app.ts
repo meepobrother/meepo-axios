@@ -1,11 +1,11 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { AxiosService } from './axios/axios.service';
-import { MeepoCoreModule } from 'meepo-core';
+import { MeepoCoreServiceModule } from 'meepo-core';
 import { Base64Module } from 'meepo-base64';
 
 @NgModule({
     imports: [
-        MeepoCoreModule.forRoot(),
+        MeepoCoreServiceModule,
         Base64Module.forRoot()
     ],
     exports: [],
