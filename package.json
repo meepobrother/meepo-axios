@@ -1,13 +1,13 @@
 {
     "name": "meepo-axios",
-    "version": "1.0.9",
+    "version": "1.1.0",
     "description": "meepo axios",
     "main": "./bundles/meepo.umd.js",
     "module": "./esm5/meepo.js",
     "es2015": "./esm2015/meepo.js",
     "typings": "./meepo.d.ts",
     "scripts": {
-        "build": "yarn add meepo-core meepo-base64 && bash ./build.sh",
+        "build": "bash ./build.sh",
         "git": "git add . && git commit -m 'save to back' && git push origin master",
         "test": "node index.js",
         "demo": "ng serve",
