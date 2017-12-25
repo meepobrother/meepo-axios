@@ -9,16 +9,10 @@ import { Base64Module } from 'meepo-base64';
         Base64Module.forRoot()
     ],
     exports: [],
-    declarations: []
+    declarations: [],
+    providers: [
+        AxiosService
+    ]
 })
-export class AxiosModule {
-    public static forRoot(): ModuleWithProviders {
-        return {
-            ngModule: AxiosModule,
-            providers: [
-                AxiosService
-            ]
-        }
-    }
-}
+export class AxiosModule {}
 export { AxiosService } from './axios/axios.service';
