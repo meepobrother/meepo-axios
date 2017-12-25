@@ -1,6 +1,6 @@
 {
     "name": "meepo-axios",
-    "version": "1.1.7",
+    "version": "1.1.8",
     "description": "meepo axios",
     "main": "./bundles/meepo.umd.js",
     "module": "./esm5/meepo.js",
@@ -50,7 +50,7 @@
         "@angular/core": "^5.1.0",
         "@angular/platform-browser": "^5.1.0",
         "axios": "^0.17.1",
-        "meepo-base64": "^1.0.7",
+        "meepo-base64": "^1.0.9",
         "meepo-core": "^2.8.0",
         "reflect-metadata": "~0.1.10",
         "rxjs": "^5.5.0",
