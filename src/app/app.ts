@@ -6,7 +6,7 @@ import { Base64Module } from 'meepo-base64';
 @NgModule({
     imports: [
         MeepoCoreServiceModule,
-        Base64Module.forRoot()
+        Base64Module
     ],
     exports: [],
     declarations: [],
