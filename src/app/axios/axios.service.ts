@@ -30,10 +30,12 @@ export class AxiosService {
     default: AxiosRequestConfig = {
         cancelToken: this.source.token
     };
+    time: any = new Date().getTime();
     constructor(
         public core: CoreService,
         public base64: Base64Service
     ) {
+        console.log('axios servie', this.time);
         // 添加请求拦截器
         axios.interceptors.request.use((config) => {
             // 在发送请求之前做些什么
