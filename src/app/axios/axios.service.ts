@@ -80,7 +80,7 @@ export class AxiosService {
         const d = JSON.stringify(__body);
         const encrypted = this.base64.encode(d);
         // for angular
-        return { __input: { encrypted: encrypted } };
+        return { encrypted: encrypted };
     }
 
     cancel(msg: string = 'cancel') {
