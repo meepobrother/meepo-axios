@@ -1,12 +1,15 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
-import { AxiosService } from './axios/axios.service';
+import { AxiosService, Axios } from './axios/axios';
 import { MeepoCoreServiceModule } from 'meepo-core';
 import { Base64Module } from 'meepo-base64';
-
+import { HttpClientModule } from '@angular/common/http';
+import { UuidModule } from 'meepo-uuid';
 @NgModule({
     imports: [
         MeepoCoreServiceModule,
-        Base64Module
+        Base64Module,
+        HttpClientModule,
+        UuidModule
     ],
     exports: [],
     declarations: [],
@@ -15,4 +18,4 @@ import { Base64Module } from 'meepo-base64';
     ]
 })
 export class AxiosModule {}
-export { AxiosService } from './axios/axios.service';
+export { AxiosService } from './axios/axios';

@@ -20,13 +20,11 @@ export class AppComponent implements OnInit {
   }
 
   getCity() {
-    let c1 = this.axios.get("https://meepo.com.cn/v1/cities");
-    let c2 = this.axios.get("https://meepo.com.cn/v1/cities");
-    let s$ = this.axios.all([c1, c2]).subscribe(res => {
+    let c1 = this.axios.get("https://meepo.com.cn/v1/cities").subscribe(res => {
       console.log(res);
-      this.city = res[0].data;
-      console.log(this.city);
-      s$.unsubscribe();
+    });
+    let c2 = this.axios.bpost("https://meepo.com.cn/v1/cities",{text: 1}).subscribe(res => {
+      console.log(res);
     });
   }
 }
