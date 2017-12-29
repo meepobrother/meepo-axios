@@ -16,4 +16,3 @@ import { MeepoCoreModule } from 'meepo-core';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
