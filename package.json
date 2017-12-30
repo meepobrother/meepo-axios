@@ -1,6 +1,6 @@
 {
     "name": "meepo-axios",
-    "version": "1.2.7",
+    "version": "1.2.8",
     "description": "meepo axios",
     "main": "./bundles/meepo.umd.js",
     "module": "./esm5/meepo.js",
