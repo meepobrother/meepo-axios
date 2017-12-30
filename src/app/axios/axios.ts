@@ -11,11 +11,7 @@ export abstract class Axios {
 
     abstract bpost<T>(url: string, body: any, config?: any): Observable<T>;
 
-    entry(__body: any): { encrypted: string } {
-        const d = JSON.stringify(__body);
-        const encrypted = this.base64.encode(d);
-        return { encrypted: encrypted };
-    }
+    abstract entry(__body: any): { encrypted: string };
 
     abstract cancel(): this;
 
@@ -53,6 +49,12 @@ export class AxiosService extends Axios {
     bpost<T>(url: string, body: any, config?: any): Observable<T> {
         let p = this.entry(body);
         return this.post(url, p, config);
+    }
+
+    entry(__body: any): { encrypted: string } {
+        const d = JSON.stringify(__body);
+        const encrypted = this.base64.encode(d);
+        return { encrypted: encrypted };
     }
 
     all<T>(): Observable<T> {
