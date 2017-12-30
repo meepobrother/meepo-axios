@@ -33,6 +33,7 @@ export class AxiosService implements Axios {
         public base64: Base64Service
     ) {
         this.sn = this.uuid.v1();
+        console.log(this.base64);
     }
 
     get<T>(url: string, config?: any): Observable<T> {
