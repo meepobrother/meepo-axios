@@ -2,9 +2,7 @@ import { Observable } from "rxjs/Observable";
 
 export abstract class Axios {
     sn: string;
-    constructor(
-        public base64: Base64Service
-    ) { }
+    constructor() { }
     abstract get<T>(url: string, config?: any): Observable<T>;
 
     abstract post<T>(url: string, body: any, config?: any): Observable<T>;
@@ -27,14 +25,13 @@ import { CoreService } from 'meepo-core';
 import { Base64Service } from 'meepo-base64';
 
 @Injectable()
-export class AxiosService extends Axios {
+export class AxiosService implements Axios {
     sn: string;
     constructor(
         public http: HttpClient,
         public uuid: UuidService,
         public base64: Base64Service
     ) {
-        super(base64);
         this.sn = this.uuid.v1();
     }
 
