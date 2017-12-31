@@ -34,7 +34,7 @@ export class AxiosService implements Axios {
         public base64: Base64Service
     ) {
         this.sn = this.uuid.v1();
-        this.header.append("Content-Type", "application/x-www-form-urlencoded");
+        this.header = this.header.append('Content-Type', 'application/json');
         console.log(this.header);
     }
 
