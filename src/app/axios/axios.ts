@@ -37,19 +37,17 @@ export class AxiosService implements Axios {
         this.header.append("Content-Type", "application/x-www-form-urlencoded");
     }
 
-    get<T>(url: string, config?: any): Observable<T> {
-        this.header = { ...this.header, ...config };
+    get<T>(url: string): Observable<T> {
         return this.http.get<T>(url, { headers: this.header });
     }
 
-    post<T>(url: string, body: any, config?: any): Observable<T> {
-        this.header = { ...this.header, ...config };
+    post<T>(url: string, body: any): Observable<T> {
         return this.http.post<T>(url, body, { headers: this.header });
     }
 
     bpost<T>(url: string, body: any, config?: any): Observable<T> {
         let p = this.entry(body);
-        return this.post(url, p, config);
+        return this.post(url, p);
     }
 
     entry(__body: any): { encrypted: string } {
