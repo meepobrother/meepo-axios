@@ -35,6 +35,7 @@ export class AxiosService implements Axios {
     ) {
         this.sn = this.uuid.v1();
         this.header.append("Content-Type", "application/x-www-form-urlencoded");
+        console.log(this.header);
     }
 
     get<T>(url: string): Observable<T> {
