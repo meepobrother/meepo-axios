@@ -50,10 +50,10 @@ export class AxiosService implements Axios {
         return this.post(url, p);
     }
 
-    entry(__body: any): { encrypted: string } {
+    entry(__body: any): any {
         const d = JSON.stringify(__body);
         const encrypted = this.base64.encode(d);
-        return { encrypted: encrypted };
+        return JSON.stringify({ encrypted: encrypted });
     }
 
     all<T>(): Observable<T> {
