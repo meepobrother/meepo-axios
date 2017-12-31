@@ -18,7 +18,7 @@ export abstract class Axios {
 
 
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { UuidService } from 'meepo-uuid';
 import { CoreService } from 'meepo-core';
@@ -27,21 +27,24 @@ import { Base64Service } from 'meepo-base64';
 @Injectable()
 export class AxiosService implements Axios {
     sn: string;
+    header: HttpHeaders = new HttpHeaders();
     constructor(
         public http: HttpClient,
         public uuid: UuidService,
         public base64: Base64Service
     ) {
         this.sn = this.uuid.v1();
-        console.log(this.base64);
+        this.header.append("Content-Type", "application/x-www-form-urlencoded");
     }
 
     get<T>(url: string, config?: any): Observable<T> {
-        return this.http.get<T>(url, { headers: config });
+        this.header = { ...this.header, ...config };
+        return this.http.get<T>(url, { headers: this.header });
     }
 
     post<T>(url: string, body: any, config?: any): Observable<T> {
-        return this.http.post<T>(url, body, { headers: config });
+        this.header = { ...this.header, ...config };
+        return this.http.post<T>(url, body, { headers: this.header });
     }
 
     bpost<T>(url: string, body: any, config?: any): Observable<T> {
