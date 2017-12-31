@@ -34,16 +34,14 @@ export class AxiosService implements Axios {
         public base64: Base64Service
     ) {
         this.sn = this.uuid.v1();
-        this.header = this.header.append('Content-Type', 'application/json');
-        console.log(this.header);
     }
 
     get<T>(url: string): Observable<T> {
-        return this.http.get<T>(url, { headers: this.header });
+        return this.http.get<T>(url);
     }
 
     post<T>(url: string, body: any): Observable<T> {
-        return this.http.post<T>(url, body, { headers: this.header });
+        return this.http.post<T>(url, body);
     }
 
     bpost<T>(url: string, body: any, config?: any): Observable<T> {
